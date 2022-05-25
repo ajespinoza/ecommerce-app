@@ -1,0 +1,25 @@
+<h2>Formulario en angular</h2>
+
+
+<form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+  <app-button (click)="organizarelemento()">Organizar</app-button>
+  <app-button (click)="onPatchValue()">Agregar texto</app-button>
+
+  <br><br>
+
+  <app-form-field label="Nombre"
+                  [required]="true"
+                  [control]="form.controls['input']"
+                  [isInline]="isInline"
+                  [patternError]="regexErrors.number">
+    <app-input formControlName="input"></app-input>
+  </app-form-field>
+
+  <app-form-field label="Password"
+                  [required]="true"
+                  [control]="form.controls['password']"
+                  [isInline]="isInline"
+                  >
+    <app-password formControlName="password"></app-password>
+  </app-form-field>
+</form>
