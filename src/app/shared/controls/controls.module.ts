@@ -5,6 +5,10 @@ import { FormFieldModule } from './form-field/form-field.module';
 import { PasswordModule } from './password/password.module';
 import { SelectModule } from './select/select.module';
 import { CheckboxModule } from './checkbox/checkbox.module';
+import { RadiosModule } from './radios/radios.module';
+import { DateModule } from './date/date.module';
+import { DateRangeModule } from './date-range/date-range.module';
+import { AutocompleteModule } from './autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [],
@@ -14,14 +18,22 @@ import { CheckboxModule } from './checkbox/checkbox.module';
     FormFieldModule,
     PasswordModule,
     SelectModule,
-    CheckboxModule
+    CheckboxModule,
+    RadiosModule,
+    DateModule,
+    DateRangeModule,
+    AutocompleteModule
   ],
   exports: [
     InputModule,
     FormFieldModule,
     PasswordModule,
     SelectModule,
-    CheckboxModule
+    CheckboxModule,
+    RadiosModule,
+    DateModule,
+    DateRangeModule,
+    AutocompleteModule
   ]
 })
 export class ControlsModule { }
