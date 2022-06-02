@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { regex, regexErrors, markFormGroupTouched } from '@app/shared';
+import { regex, regexErrors, markFormGroupTouched } from '@app/shared/utils';
 
 import { ControlItem } from '@app/models/frontend';
 
