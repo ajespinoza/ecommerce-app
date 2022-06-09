@@ -134,4 +134,8 @@ export class SharedComponent implements OnInit {
   onError(): void {
     this.notification.error("Se encontraron errores en el proceso");
   }
+
+  onFilesChanged(urls: string | string[]) : void {
+    console.log('urls', urls);
+  }
 }

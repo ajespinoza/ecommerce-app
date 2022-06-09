@@ -7,6 +7,8 @@ import { Dictionaries, Dictionary, Item, ControlItem } from "./dictionaries.mode
 
 import * as fromActions from './dictionaries.actions';
 
+import * as jsonCountries from '@src/assets/countries.json';
+
 type Action = fromActions.All;
 
 const documentToItem = (x: DocumentChangeAction<any>): Item => {
@@ -55,13 +57,22 @@ export class DictionariesEffects {
             take(1),
             map( items => items.map(x => documentToItem(x)))
           ),
+          of( (jsonCountries as any).default.map( (country: any) => ({
+            id: country.code.toUpperCase(),
+            name: country.name,
+            icon: {
+              src: null,
+              cssClass: 'fflag fflag-'+country.code.toUpperCase()
+            }
+          })))
         ).pipe(
-          map(([roles,specializations, qualifications, skills]) => {
+          map(([roles,specializations, qualifications, skills, countries]) => {
             const dictionaries: Dictionaries = {
               roles: addDictionary(roles),
               specializations: addDictionary(specializations),
               qualifications: addDictionary(qualifications),
-              skills: addDictionary(skills)
+              skills: addDictionary(skills),
+              countries: addDictionary(countries)
             };
 
             return new fromActions.ReadSuccess(dictionaries);
